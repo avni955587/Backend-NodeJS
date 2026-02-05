@@ -1,0 +1,8 @@
+{
+    "rollNo" : 2415000390,
+    "Name" :"Avni Gangwar",
+    "Section" :"2FC",
+    "isActive" :true,
+    "languagePro" :["enlish" ,"hindi"],
+    "techStack" :{"primary":"php","secodary":"Node js"}
+}
