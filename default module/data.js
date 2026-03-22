@@ -1,4 +1,5 @@
-const myInfo = require('./info.js');
+const MyInfo = require('./info.js');
+MyInfo.myAdd();
+MyInfo.myInfo();
 
-myInfo();
 

@@ -10,7 +10,7 @@ console.log(os.uptime());
 console.log(os.homedir());
 console.log(os.userInfo());
 console.log(os.networkInterfaces());  //Network details (IP addresses, adapters).
-
 console.log(`OS: ${os.platform()}`);
 console.log(`CPU Cores: ${os.cpus().length}`);
 console.log(`Free Memory: ${os.freemem() / 1024 / 1024} MB`);
+console.log(`Running time in hr : ${os.uptime()/3600}`);

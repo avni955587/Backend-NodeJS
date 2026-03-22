@@ -4,5 +4,4 @@ function myInfo() {
 function myAdd(){
     console.log("Kaimganj");
 }
-module.exports = myInfo;
-module.exports = myAdd;
+module.exports = {myInfo,myAdd};
