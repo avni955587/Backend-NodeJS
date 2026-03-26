@@ -1,7 +1,13 @@
 const express= require('express')
 const app=express()
+const {resultFilter,logfile, logFile}= require('./middleWare')
 
 app.set("view engine","ejs")
+
+// Application level middleware
+app.use(resultFilter)
+app.use(logFile)
+
 app.get('',(req,res)=>{
     let Student={
         name:'Avni Gangwar',
