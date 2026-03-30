@@ -1,6 +1,6 @@
 const express= require('express')
 const app=express()
-const {resultFilter,logfile, logFile}= require('./middleWare')
+const {resultFilter,logfile}= require('./middleWare')
 
 app.set("view engine","ejs")
 
