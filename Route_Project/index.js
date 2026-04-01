@@ -16,7 +16,6 @@ router.get("/contact",(req,res)=>{
     res.send("WElcome to Contact Page")
 })
 
-
 app.listen(3000,()=>{
     console.log("Server is listening at http://localhost:3000")
 })
