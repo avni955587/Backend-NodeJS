@@ -1,8 +1,9 @@
 const express=require('express')
+const fs = require('fs')
 const app = express()
 const users = require('./Users.json')
 
-
+app.use(express.urlencoded({Extender:"false"}))
 app.get('/api/userData',(req,res)=>{
     return res.json(users)
 })
@@ -19,6 +20,16 @@ app.get('/userData/:id',(req,res)=>{
     console.log(id)
     const user_wise = users.find(user=> user.id==id)
     return res.json(user_wise)
+})
+
+app.post('/userData',(req,res)=>{
+    const data=req.body
+    // console.log(data)
+    users.push(data)
+    fs.appendFile("./Users.json",JSON.stringify(data),(err)=>{
+        return res.json({mes:"File Successfully Written"})
+    })
+    return res.json({mes:"Done"})
 })
 
 app.listen(3000,()=>{
