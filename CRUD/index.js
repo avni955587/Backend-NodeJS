@@ -15,6 +15,7 @@ app.get('/userName',(req,res)=>{
    `
    res.send(html)
 })
+
 app.get('/userData/:id',(req,res)=>{
     const id =req.params.id
     console.log(id)
@@ -30,6 +31,24 @@ app.post('/userData',(req,res)=>{
         return res.json({mes:"File Successfully Written"})
     })
     return res.json({mes:"Done"})
+})
+
+app.delete('/api/users/:id',(req,res)=>{
+    const id = Number(req.params.id)
+    console.log(id)
+    const users= JSON.parse(fs.readFileSync('Users.json','utf-8'))
+    const FilteredUsers = users.filter(user=> user.id !== id)
+    fs.writeFileSync('Users.json',JSON.stringify(FilteredUsers,null,2))
+    return res.json({mes:"User deleted"})
+})
+
+app.patch('/api/users/:id',(req,res)=>{
+    const id = Number(req.params.id)
+    const updates = req.body
+    const users = JSON.parse(fs.readFileSync('./Users.json','utf-8'))
+    const updatedUsers = users.map(user=> user.id === id ? {...user , ...updates}:user)
+    fs.writeFileSync('./Users.json',JSON.stringify(updatedUsers,null,2))
+    res.json({mes:"User updated"})
 })
 
 app.listen(3000,()=>{
